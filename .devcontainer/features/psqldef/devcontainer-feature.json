@@ -1,0 +1,9 @@
+{
+  "id": "psqldef",
+  "version": "1.0.0",
+  "name": "psqldef",
+  "description": "psqldef feature for devcontainer",
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/go"
+  ]
+}

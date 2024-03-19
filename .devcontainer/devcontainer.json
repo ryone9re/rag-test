@@ -1,0 +1,31 @@
+{
+  "name": "development",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+  "remoteUser": "node",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest",
+      "dockerDashComposeVersion": "v2"
+    },
+    "ghcr.io/devcontainers/features/go:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers-contrib/features/pnpm:2": {
+      "version": "latest"
+    },
+    "./features/sqlc": {},
+    "./features/psqldef": {}
+  },
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
+    "source=${localWorkspaceFolderBasename}-pnpm-store,target=${containerWorkspaceFolder}/.pnpm-store,type=volume"
+  ],
+  "postCreateCommand": "sudo chown node node_modules .pnpm-store && pnpm install --frozen-lockfile",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "biomejs.biome"
+      ]
+    }
+  }
+}
