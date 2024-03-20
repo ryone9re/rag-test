@@ -17,11 +17,15 @@ export class AIRepositoryImpl implements AIRepository {
       stream: false,
     })) as AiTextGenerationOutput;
 
-    if ("response" in answer && answer.response) {
-      return MessageFactory(answer.response);
+    if (!("response" in answer)) {
+      throw new Error("Response not found.");
     }
 
-    throw new Error();
+    if (!answer.response) {
+      throw new Error("Response not found.");
+    }
+
+    return MessageFactory(answer.response);
   }
 
   async run(text: string): Promise<number[]> {
