@@ -1,0 +1,30 @@
+name = "rag-server"
+compatibility_date = "2023-12-01"
+
+[ai]
+binding = "AI"
+
+[[vectorize]]
+binding = "VEC"
+index_name = "vector-index"
+
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "database"
+database_id = "97bbc80b-9c8b-432f-878d-60361e9d0f15"
+
+# [vars]
+# MY_VAR = "my-variable"
+
+# [[kv_namespaces]]
+# binding = "MY_KV_NAMESPACE"
+# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# [[r2_buckets]]
+# binding = "MY_BUCKET"
+# bucket_name = "my-bucket"
+
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "my-database"
+# database_id = ""
